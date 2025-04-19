@@ -1,7 +1,6 @@
 import { TaskCard } from "../components/TaskCard";
-import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
-import { Search, Filter, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { WorkType } from "@/lib/types";

@@ -11,7 +11,7 @@ import { useNavigate } from "react-router";
 
 export const TaskCard = (task: WorkType) => {
   // Status color mapping
-  const statusColorMap = {
+  const statusColorMap: Record<string, string> = {
     Open: "bg-green-500",
     Closed: "bg-red-500",
     InProgress: "bg-yellow-500",

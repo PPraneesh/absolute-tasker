@@ -62,7 +62,7 @@ export const tasksSlice = createSlice({
         status: "Open",
         offersCount: 3,
         pay: 15000,
-      description: "We are looking for a skilled web developer to maintain our website and fix any bugs. The work is remote and flexible.",
+        description: "We are looking for a skilled web developer to maintain our website and fix any bugs. The work is remote and flexible.",
       },
       {
         _id: "6",
@@ -109,7 +109,7 @@ export const tasksSlice = createSlice({
         descriptionription:" We need a content writer to create engaging content for our marketing campaign. The work is on-site in Delhi.",
       },
     ]
-  },
+  } as intialStateType,
   reducers: {
     addTask: (state, action) => {
       state.tasks.push(action.payload);

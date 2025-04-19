@@ -8,6 +8,9 @@ export const TaskLocation = ({
   onDataChange: (data: { isRemovals: string | undefined }) => void;
 }) => {
   const [isRemote, setIsRemote] = useState<string | undefined>(undefined);
+  useEffect(() => {
+    onDataChange({ isRemovals: isRemote });
+  }, [isRemote, onDataChange]);
   return (
     <div className="space-y-4 max-w-md mx-auto">
       <h1 className="text-xl font-semibold text-center">Tell us where</h1>
