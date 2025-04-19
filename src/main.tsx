@@ -11,6 +11,7 @@ import TaskPage from "./pages/TaskPage.tsx";
 import { PostTask } from "./pages/PostTask.tsx";
 import Profile from "./pages/Profile.tsx";
 import MyTasks from "./pages/MyTasks.tsx";
+import { ThemeProvider } from "./context/ThemeContext"; // Or "../src/context/ThemeContext.tsx" depending on location
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </Provider>
   </StrictMode>
 );

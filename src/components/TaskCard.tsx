@@ -18,17 +18,17 @@ export const TaskCard = (task: WorkType) => {
   };
   const navigate = useNavigate();
   return (
-    <div className="flex gap-6 flex-col bg-white dark:bg-slate-800 rounded-lg shadow-md p-4 mb-4 hover:shadow-lg transition-shadow">
+    <div className="flex gap-6 flex-col bg-white dark:bg-black rounded-lg shadow-md p-4 mb-4 hover:shadow-lg transition-shadow border-2 border-border-light dark:border-border-dark">
       <div className="flex justify-between gap-4">
         {/* Left section with task details */}
         <div className="space-y-3">
           <div className="flex justify-between items-center gap-2">
-            <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+            <h2 className="text-xl font-semibold text-black dark:text-white">
               {task.name}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-600 dark:text-slate-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-neutral-700 dark:text-neutral-300">
             <div className="flex items-center gap-2">
               <CalendarIcon size={16} />
               <span>{task.date}</span>
@@ -58,10 +58,10 @@ export const TaskCard = (task: WorkType) => {
             {task.status}
           </Badge>
           <div className="text-right">
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">
               Payment
             </p>
-            <p className="text-2xl font-bold text-slate-900 dark:text-white">
+            <p className="text-2xl font-bold text-black dark:text-white">
               ₹{task.pay.toLocaleString()}
             </p>
           </div>
@@ -69,14 +69,14 @@ export const TaskCard = (task: WorkType) => {
       </div>
       <div className="flex gap-2 justify-between">
         <Button
-          className="flex-1 bg-slate-700 hover:bg-slate-600 cursor-pointer"
+          className="flex-1 bg-black text-white dark:bg-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 cursor-pointer"
           onClick={() => {
             navigate(`/task/${task._id}`);
           }}
         >
           View Task
         </Button>
-        <Button className="flex-1 bg-slate-700 hover:bg-slate-600 cursor-pointer">
+        <Button className="flex-1 bg-black text-white dark:bg-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 cursor-pointer">
           Accept Task
         </Button>
       </div>

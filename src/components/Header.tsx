@@ -22,7 +22,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import SecondaryHeader from "./SecondaryHeader";
 import {
   Tooltip,
   TooltipContent,
@@ -38,11 +37,11 @@ export const Header = () => {
   return (
     <div>
       {/* Desktop Header - Hidden on mobile */}
-      <header className="w-full px-6 py-4 shadow-md bg-white hidden md:block">
+      <header className="w-full px-6 py-4 shadow-md bg-white dark:bg-black border-b border-border-light dark:border-border-dark hidden md:block transition-colors">
         {isAuthenticated && (
           <div className="flex items-center justify-between gap-6">
             <div className="flex items-center justify-between gap-4">
-              <h1 className="text-xl font-semibold text-gray-800">
+              <h1 className="text-xl font-semibold text-black dark:text-white">
                 Absolute Tasker
               </h1>
               {/* Navigation buttons */}
@@ -50,17 +49,22 @@ export const Header = () => {
                 <div className="flex gap-2">
                   <Button
                     className="cursor-pointer"
+                    variant="outline"
                     onClick={() => navigate("/post")}
                   >
                     Post a task
                   </Button>
                   <Button
                     className="cursor-pointer"
+                    variant="outline"
                     onClick={() => navigate("/browse")}
                   >
                     Browse tasks
                   </Button>
-                  <Button onClick={() => navigate("/my-tasks")}>
+                  <Button
+                    variant="outline"
+                    onClick={() => navigate("/my-tasks")}
+                  >
                     My tasks
                   </Button>
                 </div>
@@ -73,7 +77,7 @@ export const Header = () => {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button variant="outline" className="cursor-pointer">
-                        <HelpCircle />
+                        <HelpCircle className="text-black dark:text-white" />
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent className="px-2 py-1 text-xs">
@@ -85,7 +89,7 @@ export const Header = () => {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button variant="outline" className="cursor-pointer">
-                        <Bell />
+                        <Bell className="text-black dark:text-white" />
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent className="px-2 py-1 text-xs">
@@ -99,7 +103,7 @@ export const Header = () => {
                 className="cursor-pointer"
                 onClick={() => navigate("/profile")}
               >
-                <User className="w-6 h-6 text-gray-700" />
+                <User className="w-6 h-6 text-black dark:text-white" />
               </Button>
             </div>
           </div>
@@ -107,45 +111,39 @@ export const Header = () => {
       </header>
 
       {/* Mobile Header - Only shown on mobile */}
-
       {location.pathname === "/browse" ? (
         <div>
-          <div className="bg-gray-200 px-6 py-2 hidden md:block">
-            <SecondaryHeader />
-            <div></div>
-          </div>
-
           <div>
-            <header className="w-full px-4 py-3 bg-white md:hidden">
+            <header className="w-full px-4 py-3 bg-white dark:bg-black border-b border-border-light dark:border-border-dark md:hidden transition-colors">
               <div className="flex items-center justify-between gap-4">
                 <div className="invisible items-start flex gap-2">
                   <Button variant="outline" className="cursor-pointer">
-                    <Bell />
+                    <Bell className="text-black dark:text-white" />
                   </Button>
                   <Button variant="outline" className="cursor-pointer">
-                    <Bell />
+                    <Bell className="text-black dark:text-white" />
                   </Button>
                 </div>
-                <h1 className="text-xl font-semibold text-gray-800 text-center flex-1">
+                <h1 className="text-xl font-semibold text-black dark:text-white text-center flex-1">
                   Browse Tasks
                 </h1>
                 {/* Empty div to balance the flex layout */}
                 <div className=" flex gap-2">
                   <Button variant="outline">
-                    <Search />
+                    <Search className="text-black dark:text-white" />
                   </Button>
                   <Button variant="outline" className="cursor-pointer">
-                    <Bell />
+                    <Bell className="text-black dark:text-white" />
                   </Button>
                 </div>
               </div>
             </header>
-            <div className="flex items-center justify-between gap-4 px-4 py-2 border-b border-gray-200 bg-gray-200 md:hidden">
+            <div className="flex items-center justify-between gap-4 px-4 py-2 border-b border-border-light dark:border-border-dark bg-white dark:bg-black md:hidden transition-colors">
               <TooltipProvider delayDuration={0}>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="outline">
-                      <ListFilter />
+                      <ListFilter className="text-black dark:text-white" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent className="px-2 py-1 text-xs">
@@ -159,7 +157,7 @@ export const Header = () => {
                     <TooltipTrigger asChild>
                       <DropdownMenuTrigger asChild>
                         <Button variant="outline" className="cursor-pointer">
-                          <SortAsc />
+                          <SortAsc className="text-black dark:text-white" />
                         </Button>
                       </DropdownMenuTrigger>
                     </TooltipTrigger>
@@ -170,27 +168,27 @@ export const Header = () => {
                 </TooltipProvider>
                 <DropdownMenuContent align="end" className="w-56">
                   <DropdownMenuItem className="flex items-center">
-                    <Star className="mr-2 h-4 w-4" />
+                    <Star className="mr-2 h-4 w-4 text-black dark:text-white" />
                     Recommended
                   </DropdownMenuItem>
                   <DropdownMenuItem className="flex items-center">
-                    <Clock className="mr-2 h-4 w-4" />
+                    <Clock className="mr-2 h-4 w-4 text-black dark:text-white" />
                     Most recently posted
                   </DropdownMenuItem>
                   <DropdownMenuItem className="flex items-center">
-                    <CalendarClock className="mr-2 h-4 w-4" />
+                    <CalendarClock className="mr-2 h-4 w-4 text-black dark:text-white" />
                     Due soon
                   </DropdownMenuItem>
                   <DropdownMenuItem className="flex items-center">
-                    <MapPin className="mr-2 h-4 w-4" />
+                    <MapPin className="mr-2 h-4 w-4 text-black dark:text-white" />
                     Closest to me
                   </DropdownMenuItem>
                   <DropdownMenuItem className="flex items-center">
-                    <ArrowDownCircle className="mr-2 h-4 w-4" />
+                    <ArrowDownCircle className="mr-2 h-4 w-4 text-black dark:text-white" />
                     Lowest price
                   </DropdownMenuItem>
                   <DropdownMenuItem className="flex items-center">
-                    <ArrowUpCircle className="mr-2 h-4 w-4" />
+                    <ArrowUpCircle className="mr-2 h-4 w-4 text-black dark:text-white" />
                     Highest price
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -199,45 +197,47 @@ export const Header = () => {
           </div>
         </div>
       ) : (
-        <header className="w-full px-4 py-3 shadow-md bg-white flex md:hidden justify-center">
-          <h1 className="text-xl font-semibold text-gray-800">Tasker</h1>
+        <header className="w-full px-4 py-3 shadow-md bg-white dark:bg-black border-b border-border-light dark:border-border-dark flex md:hidden justify-center transition-colors">
+          <h1 className="text-xl font-semibold text-black dark:text-white">
+            Tasker
+          </h1>
         </header>
       )}
 
       {/* Mobile Navigation Bar - Fixed at bottom on mobile screens */}
       {isAuthenticated && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-1 md:hidden z-10">
+        <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-black border-t border-border-light dark:border-border-dark flex justify-around py-1 md:hidden z-10 transition-colors">
           <Button
             variant="ghost"
             className="flex flex-col items-center justify-center p-1"
             onClick={() => navigate("/browse")}
           >
-            <Search className="h-5 w-5" />
-            <span className="text-xs">Browse</span>
+            <Search className="h-5 w-5 text-black dark:text-white" />
+            <span className="text-xs text-black dark:text-white">Browse</span>
           </Button>
           <Button
             variant="ghost"
             className="flex flex-col items-center justify-center p-1"
             onClick={() => navigate("/post")}
           >
-            <Plus className="h-5 w-5" />
-            <span className="text-xs">Post</span>
+            <Plus className="h-5 w-5 text-black dark:text-white" />
+            <span className="text-xs text-black dark:text-white">Post</span>
           </Button>
           <Button
             variant="ghost"
             className="flex flex-col items-center justify-center p-1"
             onClick={() => navigate("/my-tasks")}
           >
-            <Clipboard className="h-5 w-5" />
-            <span className="text-xs">My Tasks</span>
+            <Clipboard className="h-5 w-5 text-black dark:text-white" />
+            <span className="text-xs text-black dark:text-white">My Tasks</span>
           </Button>
           <Button
             variant="ghost"
             className="flex flex-col items-center justify-center p-1"
             onClick={() => navigate("/profile")}
           >
-            <User className="h-5 w-5" />
-            <span className="text-xs">Profile</span>
+            <User className="h-5 w-5 text-black dark:text-white" />
+            <span className="text-xs text-black dark:text-white">Profile</span>
           </Button>
         </div>
       )}
