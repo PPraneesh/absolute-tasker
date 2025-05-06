@@ -36,14 +36,25 @@ export const PostTask = () => {
           {steps.map((step, index) => (
             <StepperItem key={step} step={step} className="not-last:flex-1">
               <StepperTrigger>
-                <StepperIndicator className="data-[state=active]:border-black data-[state=complete]:bg-black data-[state=complete]:border-black size-4 data-[state=active]:border-2 data-[state=active]:bg-transparent [&_span]:sr-only [&_svg]:size-3 bg-gray-400 border-gray-400" />
+                <StepperIndicator
+                  className="
+                    size-4 [&_span]:sr-only [&_svg]:size-3
+                    bg-neutral-400 border-neutral-400 dark:bg-neutral-700 dark:border-neutral-700
+                    data-[state=active]:border-1
+                    dark:text-neutral-200
+                    data-[state=active]:border-black dark:data-[state=active]:border-neutral-400
+                    data-[state=active]:bg-transparent
+                    data-[state=complete]:bg-black dark:data-[state=complete]:bg-neutral-200
+                    data-[state=complete]:border-black dark:data-[state=complete]:border-neutral-400
+                  "
+                />
               </StepperTrigger>
               {index < steps.length - 1 && (
                 <StepperSeparator
                   className={`border-2 ${
                     currentStep > index
-                      ? "bg-black border-black"
-                      : "bg-gray-200"
+                      ? "bg-black border-black dark:bg-neutral-400 dark:border-neutral-200"
+                      : "bg-neutral-200 dark:bg-neutral-700 dark:border-neutral-700"
                   }`}
                 />
               )}
